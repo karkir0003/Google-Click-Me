@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Click Me Button
 // @namespace    https://github.com/karkir0003/Google-Click-Me
-// @version      2.1
+// @version      2.11
 // @description  Adds a centered "Click Me" button under Google Search buttons with toast message
 // @author       karkir0003
 // @match        https://www.google.com/*
@@ -35,6 +35,7 @@
         const button = document.createElement('button');
         button.id = 'click-me-button';
         button.innerText = 'Click Me';
+        button.type = 'button';
         button.style.marginTop = '20px';
         button.style.padding = '10px 24px';
         button.style.fontSize = '16px';
