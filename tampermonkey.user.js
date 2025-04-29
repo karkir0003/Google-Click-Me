@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Click Me Button
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Adds a centered "Click Me" button under Google Search buttons with toast message
 // @author       karkir0003
 // @match        https://www.google.com/*
@@ -43,7 +43,7 @@
 
         // Add click listener for toast
         button.addEventListener('click', () => {
-            showToast('You clicked me');
+            showToast('You clicked me. Change from github synced properly!');
         });
 
         // Insert the button after the Google Search buttons
