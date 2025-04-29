@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Click Me Button
 // @namespace    https://github.com/karkir0003/Google-Click-Me
-// @version      1.7
+// @version      1.8
 // @description  Adds a centered "Click Me" button under Google Search buttons with toast message
 // @author       karkir0003
 // @match        https://www.google.com/*
@@ -52,14 +52,15 @@
 
     function showToast(message) {
         const button = document.getElementById('click-me-button');
-        if (!button) return;
-
+        const container = button.parentElement; // searchButtonContainer
+        if (!button || !container) return;
+    
         const toast = document.createElement('div');
         toast.innerText = message;
-        toast.style.position = 'absolute';
-        toast.style.top = `${button.offsetHeight + 10}px`; // 10px below button
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
+        toast.style.position = 'relative'; // relative within container
+        toast.style.marginTop = '10px'; // 10px below button
+        toast.style.display = 'block';
+        toast.style.textAlign = 'center';
         toast.style.padding = '12px 20px';
         toast.style.background = '#333';
         toast.style.color = '#fff';
@@ -67,16 +68,14 @@
         toast.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
         toast.style.fontSize = '14px';
         toast.style.opacity = 0;
-        toast.style.zIndex = 10000;
-        toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-
-        button.appendChild(toast); // Attach to the button for relative positioning
-
+        toast.style.transition = 'opacity 0.4s ease';
+    
+        container.appendChild(toast); // append to the container, not button
+    
         setTimeout(() => {
             toast.style.opacity = 1;
-            toast.style.transform = 'translateX(-50%) translateY(0)';
         }, 10);
-
+    
         setTimeout(() => {
             toast.style.opacity = 0;
             setTimeout(() => { toast.remove(); }, 400);
