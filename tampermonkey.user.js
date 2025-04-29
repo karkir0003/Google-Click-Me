@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Click Me Button
-// @namespace    http://tampermonkey.net/
-// @version      1.4
+// @namespace    https://github.com/karkir0003/Google-Click-Me
+// @version      1.5
 // @description  Adds a centered "Click Me" button under Google Search buttons with toast message
 // @author       karkir0003
 // @match        https://www.google.com/*
