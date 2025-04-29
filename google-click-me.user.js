@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Click Me Button
 // @namespace    https://github.com/karkir0003/Google-Click-Me
-// @version      2.11
+// @version      2.12
 // @description  Adds a centered "Click Me" button under Google Search buttons with toast message
 // @author       karkir0003
 // @match        https://www.google.com/*
@@ -19,7 +19,6 @@
 
     function addButton() {
         if (!isHomePage()) {
-            // If not homepage and button exists, remove it
             const existingButton = document.getElementById('click-me-button');
             if (existingButton) {
                 existingButton.remove();
@@ -27,8 +26,8 @@
             return;
         }
 
-        const searchButtonContainer = document.querySelector('form div.FPdoLc');
-        if (!searchButtonContainer) return;
+        const form = document.querySelector('form');
+        if (!form) return;
 
         if (document.getElementById('click-me-button')) return;
 
@@ -57,7 +56,8 @@
             showToast('You clicked me! You have run your first Tampermonkey script!');
         });
 
-        searchButtonContainer.appendChild(button);
+        // Insert button *after* the form
+        form.parentNode.insertBefore(button, form.nextSibling);
     }
 
     function showToast(message) {
