@@ -6,8 +6,8 @@
 // @author       karkir0003
 // @match        https://www.google.com/*
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/karkir0003/Google-Click-Me/main/tampermonkey.user.js
-// @downloadURL  https://raw.githubusercontent.com/karkir0003/Google-Click-Me/main/tampermonkey.user.js
+// @updateURL    https://raw.githubusercontent.com/karkir0003/Google-Click-Me/main/google-click-me.user.js
+// @downloadURL  https://raw.githubusercontent.com/karkir0003/Google-Click-Me/main/google-click-me.user.js
 // ==/UserScript==
 
 (function() {
